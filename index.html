@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff7eb3, #ff758c);
+      background: darkblue;
       color: #fff;
       text-align: center;
       padding: 50px;
@@ -17,7 +17,7 @@
       margin-bottom: 20px;
       animation: fadeIn 2s ease-in-out;
     }
-     h2 {
+    h2 {
       font-size: 1.5em;
       margin-bottom: 20px;
       animation: fadeIn 2s ease-in-out;
@@ -26,7 +26,7 @@
       display: inline-block;
       padding: 15px 30px;
       background: #fff;
-      color: #ff758c;
+      color: darkblue;
       font-weight: bold;
       text-decoration: none;
       border-radius: 8px;
@@ -51,7 +51,7 @@
 </head>
 <body>
   <h1>Drag the button below to your bookmarks bar</h1>
-  <a href="javascript:(function() {  if (!window.location.href.includes("/users/friends#!/friend-requests")) {    alert("⚠%EF%B8%8F You must be on the Friend Requests page:\nhttps://www.roblox.com/users/friends#!/friend-requests");    return;  }  alert("✅ Loaded!");  function waitForButtonsAndInjectUI() {    const acceptBtns = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === "Accept");    const ignoreBtns = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === "Ignore");    if ((acceptBtns.length === 0 && ignoreBtns.length === 0) || document.getElementById("rbx-friend-controller")) {      setTimeout(waitForButtonsAndInjectUI, 1000);      return;    }    const panel = document.createElement("div");    panel.id = "rbx-friend-controller";    panel.style.position = "fixed";    panel.style.top = "100px";    panel.style.left = "100px";    panel.style.width = "220px";    panel.style.background = "#1c1c1c";    panel.style.color = "#fff";    panel.style.border = "2px solid #ff5555";    panel.style.padding = "12px";    panel.style.borderRadius = "12px";    panel.style.zIndex = "9999";    panel.style.boxShadow = "0 0 15px rgba(255,85,85,0.4)";    panel.style.fontFamily = "Arial, sans-serif";    panel.style.cursor = "move";    panel.innerHTML = %60      <div id="rbx-friend-drag" style="font-weight:bold;font-size:15px;text-align:center;margin-bottom:10px;">🎮 RBX Friend Controller</div>      <button id="acceptAll" style="background:#28a745;border:none;color:#fff;width:100%;padding:8px;margin-bottom:6px;border-radius:6px;cursor:pointer;">✅ Accept All</button>      <button id="declineAll" style="background:#dc3545;border:none;color:#fff;width:100%;padding:8px;border-radius:6px;cursor:pointer;">❌ Decline All</button>    %60;    document.body.appendChild(panel);    document.getElementById("acceptAll").onclick = () => {      const buttons = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === "Accept");      alert(%60✅ Accepting ${buttons.length} friend request(s)...%60);      buttons.forEach(btn => btn.click());    };    document.getElementById("declineAll").onclick = () => {      const buttons = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === "Ignore");      alert(%60❌ Declining ${buttons.length} friend request(s)...%60);      buttons.forEach(btn => btn.click());    };    const dragger = document.getElementById("rbx-friend-drag");    let isDragging = false, offsetX, offsetY;    dragger.onmousedown = function(e) {      isDragging = true;      offsetX = e.clientX - panel.offsetLeft;      offsetY = e.clientY - panel.offsetTop;      document.onmousemove = function(e) {        if (isDragging) {          panel.style.left = (e.clientX - offsetX) + "px";          panel.style.top = (e.clientY - offsetY) + "px";        }      };      document.onmouseup = function() {        isDragging = false;        document.onmousemove = null;        document.onmouseup = null;      };    };  }  waitForButtonsAndInjectUI();})();">RBX Friend Controller</a>
-  <h2>Description: Opens a menu to allow you to accept all friend requests or decline all friend requests on roblox.</h2>
+  <a href="javascript:(function() {  if (!window.location.href.includes('/users/friends#!/friend-requests')) {    alert('⚠️ You must be on the Friend Requests page:\\nhttps://www.roblox.com/users/friends#!/friend-requests');    return;  }  alert('✅ Loaded!');  function waitForButtonsAndInjectUI() {    const acceptBtns = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === 'Accept');    const ignoreBtns = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === 'Ignore');    if ((acceptBtns.length === 0 && ignoreBtns.length === 0) || document.getElementById('rbx-friend-controller')) {      setTimeout(waitForButtonsAndInjectUI, 1000);      return;    }    const panel = document.createElement('div');    panel.id = 'rbx-friend-controller';    panel.style.position = 'fixed';    panel.style.top = '100px';    panel.style.left = '100px';    panel.style.width = '220px';    panel.style.background = '#1c1c1c';    panel.style.color = '#fff';    panel.style.border = '2px solid #ff5555';    panel.style.padding = '12px';    panel.style.borderRadius = '12px';    panel.style.zIndex = '9999';    panel.style.boxShadow = '0 0 15px rgba(255,85,85,0.4)';    panel.style.fontFamily = 'Arial, sans-serif';    panel.style.cursor = 'move';    panel.innerHTML = \`      <div id="rbx-friend-drag" style="font-weight:bold;font-size:15px;text-align:center;margin-bottom:10px;">🎮 RBX Friend Controller</div>      <button id="acceptAll" style="background:#28a745;border:none;color:#fff;width:100%;padding:8px;margin-bottom:6px;border-radius:6px;cursor:pointer;">✅ Accept All</button>      <button id="declineAll" style="background:#dc3545;border:none;color:#fff;width:100%;padding:8px;border-radius:6px;cursor:pointer;">❌ Decline All</button>    \`;    document.body.appendChild(panel);    document.getElementById('acceptAll').onclick = () => {      const buttons = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === 'Accept');      alert(\`✅ Accepting \${buttons.length} friend request(s)...\`);      buttons.forEach(btn => btn.click());    };    document.getElementById('declineAll').onclick = () => {      const buttons = Array.from(document.querySelectorAll('button')).filter(btn => btn.textContent.trim() === 'Ignore');      alert(\`❌ Declining \${buttons.length} friend request(s)...\`);      buttons.forEach(btn => btn.click());    };    const dragger = document.getElementById('rbx-friend-drag');    let isDragging = false, offsetX, offsetY;    dragger.onmousedown = function(e) {      isDragging = true;      offsetX = e.clientX - panel.offsetLeft;      offsetY = e.clientY - panel.offsetTop;      document.onmousemove = function(e) {        if (isDragging) {          panel.style.left = (e.clientX - offsetX) + 'px';          panel.style.top = (e.clientY - offsetY) + 'px';        }      };      document.onmouseup = function() {        isDragging = false;        document.onmousemove = null;        document.onmouseup = null;      };    };  }  waitForButtonsAndInjectUI();})();">RBX Friend Controller</a>
+  <h2>Description: Opens a menu to allow you to accept all friend requests or decline all friend requests on Roblox.</h2>
 </body>
 </html>
